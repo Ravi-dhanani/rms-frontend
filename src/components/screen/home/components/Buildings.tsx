@@ -1,17 +1,17 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React from 'react';
+import { RootStackParamList } from "@/App";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React from "react";
 import {
-  View,
   FlatList,
   StyleSheet,
   Text,
   TouchableOpacity,
-} from 'react-native';
-import { Card } from 'react-native-paper';
-import { RootStackParamList } from '../../../../App';
-import { useNavigation } from '@react-navigation/native';
+  View,
+} from "react-native";
+import { Card } from "react-native-paper";
 
-type NavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+type NavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 
 const blocks = Array.from({ length: 26 }, (_, i) => ({
   id: (i + 1).toString(),
@@ -22,7 +22,7 @@ export default function Buildings() {
   const navigation = useNavigation<NavigationProp>();
 
   const handlePress = (heightsId: string, label: string) => {
-    navigation.navigate('Flour', {
+    navigation.navigate("Flour", {
       heightsId,
       label,
     });
@@ -33,7 +33,7 @@ export default function Buildings() {
 
       <FlatList
         data={blocks}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         numColumns={2}
         columnWrapperStyle={styles.row}
         renderItem={({ item }) => (
@@ -57,37 +57,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     gap: 15,
   },
   row: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     marginBottom: 16,
   },
   card: {
     flex: 1,
     marginHorizontal: 5,
     borderWidth: 2,
-    borderColor: '#76b3ef',
+    borderColor: "#76b3ef",
     borderRadius: 12,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     padding: 25,
   },
   cardContent: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
-    color: '#1976d2',
+    color: "#1976d2",
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   title: {
-    display: 'flex',
+    display: "flex",
     marginLeft: 13,
     fontWeight: 600,
     fontSize: 23,
