@@ -5,16 +5,16 @@
  * @format
  */
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { PaperProvider } from 'react-native-paper';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { PaperProvider } from "react-native-paper";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import FlatDetails from './src/components/screen/flat/Flat';
-import Flour from './src/components/screen/flour/Flour';
-import HomePage from './src/components/screen/home/HomePage';
-import Login from './src/components/screen/login/Login';
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import FlatDetails from "./src/components/screen/flat/Flat";
+import Flour from "./src/components/screen/flour/Flour";
+import HomePage from "./src/components/screen/home/HomePage";
+import Login from "./src/components/screen/login/Login";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -28,15 +28,13 @@ const Drawer = createDrawerNavigator();
 
 function HomeDrawer() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="HomePage">
-        <Drawer.Screen
-          name="HomePage"
-          component={HomePage}
-          options={{ headerShown: false }}
-        />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Drawer.Navigator initialRouteName="HomePage">
+      <Drawer.Screen
+        name="HomePage"
+        component={HomePage}
+        options={{ headerShown: false }}
+      />
+    </Drawer.Navigator>
   );
 }
 
@@ -60,32 +58,32 @@ function App() {
               name="Flour"
               component={Flour}
               options={({ route }) => ({
-                title: route.params?.label ?? 'Floors',
+                title: route.params?.label ?? "Floors",
                 headerStyle: {
-                  backgroundColor: '#0098FF',
+                  backgroundColor: "#0098FF",
                 },
-                headerTintColor: '#fff',
+                headerTintColor: "#fff",
                 headerTitleStyle: {
-                  fontWeight: 'bold',
+                  fontWeight: "bold",
                   fontSize: 22,
                 },
-                headerTitleAlign: 'center',
+                headerTitleAlign: "center",
               })}
             />
             <Stack.Screen
               name="Flat"
               component={FlatDetails}
               options={({ route }) => ({
-                title: route.params?.label ?? 'Flat',
+                title: route.params?.label ?? "Flat",
                 headerStyle: {
-                  backgroundColor: '#0098FF',
+                  backgroundColor: "#0098FF",
                 },
-                headerTintColor: '#fff',
+                headerTintColor: "#fff",
                 headerTitleStyle: {
-                  fontWeight: 'bold',
+                  fontWeight: "bold",
                   fontSize: 22,
                 },
-                headerTitleAlign: 'center',
+                headerTitleAlign: "center",
               })}
             />
           </Stack.Navigator>
